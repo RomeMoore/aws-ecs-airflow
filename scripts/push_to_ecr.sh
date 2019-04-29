@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 IMAGE_NAME=$1
+AWS_ACCOUNT=$2
+AWS_DEFAULT_REGION=$3
 
 ### ECR - build images and push to remote repository
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 IMAGE_NAME=$1
+AWS_ACCOUNT=$2
+AWS_DEFAULT_REGION=$3
 # TODO generate a random string
 
 COMMIT_HASH=$(hexdump -n 16 -v -e '/1 "%02X"' -e '/16 "\n"' /dev/urandom)
