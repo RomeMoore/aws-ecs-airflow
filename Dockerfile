@@ -3,7 +3,7 @@
 
 FROM python:3.6-slim
 LABEL version="1.0"
-LABEL maintainer="nicor88"
+LABEL maintainer="Romeski"
 
 # Never prompts the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -14,7 +14,7 @@ ARG AIRFLOW_VERSION=1.10.0
 
 # it's possible to use v1-10-stable, but it's a development branch
 ARG AIRFLOW_HOME=/usr/local/airflow
-ARG CELERY_REDIS_VERSION=4.2.0
+ARG CELERY_REDIS_VERSION=4.3.0
 ARG PYTHON_REDIS_VERSION=3.2.0
 ENV AIRFLOW_GPL_UNIDECODE=yes
 
@@ -63,7 +63,7 @@ RUN set -ex \
     && pip install pyOpenSSL \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
-    && pip install git+https://github.com/apache/incubator-airflow.git@$AIRFLOW_VERSION#egg=apache-airflow[async,crypto,celery,kubernetes,jdbc,password,postgres,s3,slack] \
+    && pip install git+https://github.com/apache/incubator-airflow.git@$AIRFLOW_VERSION#egg=apache-airflow[all] \
     && pip install redis==$PYTHON_REDIS_VERSION \
     && pip install celery[redis]==$CELERY_REDIS_VERSION \
     && pip install flask_oauthlib \
